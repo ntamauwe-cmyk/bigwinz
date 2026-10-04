@@ -80,3 +80,21 @@ Freebuff must first inspect the existing repository and report its framework, ro
 - Main user journeys remain navigable and usable on mobile and desktop.
 - Tests and build results are reported truthfully, with failures and warnings disclosed.
 - No final logo approval, regulatory status, or live operational capability is claimed without proof.
+
+
+## Required UI source of truth — committed preview
+
+The committed `design-preview/index.html` is the intended visual reference for the BIGWINZ interface, not merely an optional inspiration board. Use its layout, visual hierarchy, responsive behavior, surface treatments, typography, spacing, navigation patterns, event/odds presentation, bet-slip composition, wallet presentation, and overall premium visual direction as the baseline when upgrading the existing app.
+
+Port the interface into the actual existing application routes and components. Do not simply leave the design in the standalone preview, produce another concept, or substitute a generic sportsbook template. Match the preview closely while adapting components to the app's real framework and existing data flows. Keep the existing approved product behavior and connect each visual element to real existing state and APIs.
+
+The preview contains illustrative/sample content and a non-submitting bet slip. Treat that content as visual demonstration only: do not copy sample fixtures, odds, balances, bets, promotions, or outcomes into production data, and do not make the preview's demo interactions appear to place real bets or move money. Preserve actual application integrations and clearly retain unavailable/sandbox states.
+
+### Mandatory safe execution
+
+- Inspect the complete current repository and identify the actual app source, framework, routes, and integrations before editing.
+- If the app source is absent from this repository or cannot be accessed, stop before inventing or scaffolding a replacement. Report exactly what source is missing and request the correct app branch/repository or have the owner connect the source.
+- Keep the standalone preview available at `design-preview/index.html` as the reference.
+- Do not replace the approved interface with a new design or change the approved logo independently.
+- Implement incrementally in the existing codebase, preserving backend, auth, payments, betting, data, and admin functionality.
+- Run the available checks and report actual results. Commit the implementation to `main` only after reviewing the diff and verifying it does not remove existing functionality.
