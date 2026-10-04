@@ -98,3 +98,72 @@ The preview contains illustrative/sample content and a non-submitting bet slip. 
 - Do not replace the approved interface with a new design or change the approved logo independently.
 - Implement incrementally in the existing codebase, preserving backend, auth, payments, betting, data, and admin functionality.
 - Run the available checks and report actual results. Commit the implementation to `main` only after reviewing the diff and verifying it does not remove existing functionality.
+
+
+## Required BIGWINZ page checklist
+
+Freebuff must inspect the actual repository routes first, then map every applicable item below to the existing page, route, component, or clearly mark it as absent/not in scope with a reason. Do not invent new product capabilities simply to tick a box. Do not mark a page complete based on a screenshot alone: verify navigation, responsive layout, real data/state wiring, loading/empty/error states, and relevant user actions. Preserve current architecture and functionality.
+
+### Customer-facing pages
+
+- [ ] **Home / Sports discovery** — featured sports, leagues, fixtures, clear navigation, and data-backed content.
+- [ ] **Sports category pages** — sport-specific event listings, filters, and useful empty states.
+- [ ] **League / competition pages** — competition details and associated fixtures, where supported.
+- [ ] **Fixture / event details** — teams or participants, event information, markets, odds, and availability states.
+- [ ] **Live events / live scores** — live status and score updates only from actual configured feeds; show unavailable states honestly.
+- [ ] **Search and discovery** — find sports, leagues, and events using existing supported search behavior.
+- [ ] **Bet slip** — selected outcomes, odds, stake entry, potential return calculation, validation, remove/clear, and explicit confirmation flow wired to actual backend behavior. No false success.
+- [ ] **Bet placement result** — genuine accepted, rejected, pending, or failed responses with reference details where available.
+- [ ] **My bets / open bets** — authenticated user's real bet records and current status.
+- [ ] **Bet history / settled bets** — actual historical records and settlement status, without fabricated outcomes.
+- [ ] **Wallet overview** — real available balance and ledger-derived activity, with currency clearly shown.
+- [ ] **Deposit** — configured payment methods, amount validation, provider handoff/status, and honest pending/failure/sandbox states.
+- [ ] **Withdrawal** — eligibility, destination and amount validation, applicable review states, and accurate status.
+- [ ] **Wallet transactions / transaction details** — real references, timestamps, amounts, fees where applicable, and lifecycle status.
+- [ ] **Promotions / offers** — only valid configured offers, terms, eligibility, and expiry information.
+- [ ] **Notifications / inbox** — actual notification state, read/unread behavior, and empty/error states where supported.
+
+### Authentication and account
+
+- [ ] **Sign in** — existing authentication, validation, errors, and secure session behavior.
+- [ ] **Registration** — existing onboarding fields, validation, consent, and account creation flow.
+- [ ] **Verification / OTP** — existing verification provider and retry/expiry/error handling; do not bypass verification.
+- [ ] **Forgot password / recovery** — secure recovery flow with non-revealing responses where appropriate.
+- [ ] **Profile / personal details** — authenticated user's real details and supported edit/save behavior.
+- [ ] **Preferences / settings** — existing notification, display, language, or other supported preferences.
+- [ ] **Security settings** — existing password, session, device, or MFA controls only where implemented.
+- [ ] **Responsible gambling** — accessible safer-gambling information and any existing limits, time-outs, or self-exclusion controls; do not claim controls that are not operational.
+- [ ] **Sign out / session expiry** — reliable session termination and appropriate return/navigation behavior.
+
+### Administration and operations (if present)
+
+- [ ] **Admin sign in and authorization** — role-checked access; no exposure of admin functions to customers.
+- [ ] **Admin dashboard** — real operational metrics and clear unavailable-data states.
+- [ ] **User/account management** — existing search, review, and permitted actions with auditability.
+- [ ] **Bet/event/market management** — only actual supported controls and data sources.
+- [ ] **Wallet/payment operations** — transaction review and status visibility without unauthorized balance mutation.
+- [ ] **Settlement / reconciliation** — existing controls, source records, audit trail, and safe exception handling.
+- [ ] **Promotions management** — configured offers and permission-checked changes, if supported.
+- [ ] **Risk / responsible-gambling operations** — existing flags, limits, review actions, and audit trail, if supported.
+- [ ] **Roles / permissions** — least-privilege enforcement for any existing administrative roles.
+- [ ] **Audit logs / system status** — available events and health information, with no secret exposure.
+
+### Shared page states and interaction quality
+
+- [ ] Consistent BIGWINZ typography, color tokens, spacing, surfaces, navigation, controls, and status treatments based on the committed preview.
+- [ ] Responsive behavior across supported phone, tablet, and desktop widths.
+- [ ] Working navigation, active states, back behavior, and deep links for existing routes.
+- [ ] Loading, skeleton, empty, validation, success, pending, unavailable, and error states appropriate to each page.
+- [ ] Accessible contrast, visible keyboard focus, keyboard operation, semantic labels, and usable touch targets.
+- [ ] Reduced-motion support and restrained, purposeful transitions.
+- [ ] No broken links, dead buttons, fake odds, fabricated balances, sample bets, false payment confirmations, or misleading live indicators.
+
+### Verification and sign-off
+
+- [ ] Produce a route-to-checklist mapping of existing pages, including any item marked absent, unsupported, or out of scope and why.
+- [ ] Verify each applicable page at mobile and desktop sizes.
+- [ ] Exercise existing end-to-end journeys: discovery → event → bet slip → genuine placement response; sign-in → wallet → deposit/withdrawal status; account settings and sign-out; and applicable admin workflows.
+- [ ] Run the repository's available type checks, lint, tests, and production build; report exact commands and real outcomes, including warnings and failures.
+- [ ] Review the final diff for removed routes, changed contracts, weakened authorization, altered payment/betting logic, secrets, or unintended data changes.
+- [ ] Commit to `main` only after the source exists, implementation is complete for the applicable scope, checks are run, and the diff is reviewed. Report commit SHA and known limitations.
+- [ ] If application source is still missing, do not create a substitute app or claim the checklist has been implemented; report the exact missing source and stop safely.
